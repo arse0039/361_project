@@ -1,0 +1,49 @@
+.inputs-div {
+    justify-content: space-evenly;
+    display: flex;
+}
+
+.input {
+    margin-bottom: 30px;
+    width: 310px;
+    height: 35px;
+}
+
+.tooltip {
+    position:static;
+    margin-top: 2%;
+    margin-left: 95%;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    text-align: center;
+    border: solid #BBB;
+    border-width: 0.3px;
+    border-radius: 7px;
+}
+
+.tooltip .tiptext{
+    visibility: hidden;
+    width: 160px;
+    background-color: #777;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tiptext {
+    visibility: visible;
+    opacity: 3;
+}
+
+#submit {
+    padding: 0px;
+    text-align: center;
+    font-size: 17px;
+    border-style: none;
+    margin-left: 43%;
+    width: 240px;
+    height: 35px;
+    cursor: pointer;
+}
