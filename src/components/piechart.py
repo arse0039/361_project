@@ -6,12 +6,12 @@ from dash import Dash, html, dcc, Input, Output, State
 
 def render(app: Dash) -> html.Div:
     @app.callback(
-        Output('pie', "figure"),
+        Output('pie-graph', "figure"),
         Input('submit', 'n_clicks'),
         State('principal', 'value'),
         State('monthly', 'value'),
         State('interest', 'value'),
-        State('time', 'value'))
+        State('years', 'value'))
     def comp_interest(n_clicks, principal, monthly, interest, time):
         yearly_principal = {}
         yearly_interest = {}
@@ -41,4 +41,4 @@ def render(app: Dash) -> html.Div:
         if n_clicks:
             return fig2
 
-    return dcc.Graph(id="pie", figure=go.Figure(go.Pie()))
+    return dcc.Graph(id="pie-graph", figure=go.Figure(go.Pie()))

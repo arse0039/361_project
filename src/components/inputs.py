@@ -36,7 +36,7 @@ def render(app: Dash) -> html.Div:
                              ),
                     html.Div(className="input-title",
                              children=["Years until retirement"]),
-                    dcc.Input(type='number', id="time", className="input",
+                    dcc.Input(type='number', id="years", className="input",
                                    placeholder='Enter years until retirement')
                 ]
                 ),

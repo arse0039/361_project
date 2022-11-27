@@ -4,14 +4,14 @@ import plotly.graph_objects as go
 from dash import Dash, dcc, html, Input, Output, State
 
 
-def render(app: Dash) -> html.Div:
+def render(app: Dash) -> dcc.Graph:
     @app.callback(
-        Output('future-graph', "figure"),
+        Output('future-graph', 'figure'),
         Input('submit', 'n_clicks'),
         State('principal', 'value'),
         State('monthly', 'value'),
         State('interest', 'value'),
-        State('time', 'value'))
+        State('years', 'value'))
     def comp_interest(n_clicks, principal, monthly_cont, interest, time_frame):
         yearly_total = {}
         yearly_principal = {}

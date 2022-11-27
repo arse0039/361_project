@@ -47,3 +47,39 @@
     height: 35px;
     cursor: pointer;
 }
+
+#monthly-target {
+    text-align: center;
+    color:black;
+    font-size: 32px;
+}
+
+#test {
+    background-color: black;
+    border: solid black;
+    color:#fff;
+}
+
+.graph-div {
+    border: 3px solid #fff;
+    padding: 20px;
+    display: flex;
+}
+
+.graph{
+    justify-content: center;
+    width: 100%;
+    display: inline-flex;
+}
+
+#bar-graph {
+    width: 100%;
+
+}
+#pie {
+    width: 100%;
+}
+
+#future-graph {
+    width: 100%;
+}

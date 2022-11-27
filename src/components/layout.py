@@ -1,5 +1,5 @@
 from dash import Dash, html
-from . import retirement_forecaster, inputs, piechart
+from . import retirement_forecaster, inputs, piechart, microservice
 
 
 def render_layout(app: Dash):
@@ -17,8 +17,13 @@ def render_layout(app: Dash):
                 html.Hr(),
             ]),
             html.Div(children=[inputs.render(app)]),
-            html.Div(children=[retirement_forecaster.render(
-                app), piechart.render(app)]),
-
+            microservice.render(app),
+            html.Div(className='graph-div',
+                     children=[
+                         html.Div(className='graph',
+                                  id="bar-graph", children=[retirement_forecaster.render(app)]),
+                         html.Div(className='graph', id="pie", children=[
+                                  piechart.render(app)])
+                     ]),
         ]
     )
