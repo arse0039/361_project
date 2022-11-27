@@ -1,9 +1,27 @@
-from dash import Dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import Dash, Input, Output, State, dcc, html
+import pandas as pd
 
 
 def render(app: Dash) -> html.Div:
+    @app.callback(
+        Output('data-storage', 'data'),
+        Input('submit', 'n_clicks'),
+        State('principal', 'value'),
+        State('monthly', 'value'),
+        State('interest', 'value'),
+        State('years', 'value')
+    )
+    def save_data(click, principal, monthly, interest, years):
+        if click:
+            data = [
+                {'principal': principal,
+                 'monthly': monthly,
+                 'interest': interest,
+                 'years': years
+                 }]
+            df = pd.DataFrame(data)
+            return df.to_dict('records')
+
     return html.Div(
         children=[
             html.Div(children=[
@@ -15,7 +33,7 @@ def render(app: Dash) -> html.Div:
                     html.Div(className="input-title",
                              children=["Starting Balance"]),
                     dcc.Input(type='number', id="principal", className="input",
-                              placeholder='Enter starting balance'),
+                              placeholder='Enter starting balance', min=0),
                 ]
                 ),
                 html.Div(children=[
@@ -26,7 +44,7 @@ def render(app: Dash) -> html.Div:
                     html.Div(className="input-title",
                              children=["Annual Interest Rate"]),
                     dcc.Input(type='number', className='input', id='interest',
-                              placeholder="Enter annual interest rate")
+                              placeholder="Enter annual interest rate", min=1, max=20)
                 ]
                 ),
                 html.Div(children=[
@@ -37,7 +55,7 @@ def render(app: Dash) -> html.Div:
                     html.Div(className="input-title",
                              children=["Years until retirement"]),
                     dcc.Input(type='number', id="years", className="input",
-                                   placeholder='Enter years until retirement')
+                                   placeholder='Enter years until retirement', min=0, max=50)
                 ]
                 ),
                 html.Div(children=[
@@ -48,7 +66,7 @@ def render(app: Dash) -> html.Div:
                     html.Div(className="input-title",
                              children=["Monthly Contributions"]),
                     dcc.Input(type='number', id="monthly", className='input',
-                                   placeholder='Enter monthly contributions')
+                                   placeholder='Enter monthly contributions', min=0)
                 ]
                 ),
             ], className='inputs-div'),

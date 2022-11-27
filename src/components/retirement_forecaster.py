@@ -8,11 +8,13 @@ def render(app: Dash) -> dcc.Graph:
     @app.callback(
         Output('future-graph', 'figure'),
         Input('submit', 'n_clicks'),
-        State('principal', 'value'),
-        State('monthly', 'value'),
-        State('interest', 'value'),
-        State('years', 'value'))
-    def comp_interest(n_clicks, principal, monthly_cont, interest, time_frame):
+        Input('data-storage', 'data'))
+    def comp_interest(n_clicks, data):
+        principal = data[0]['principal']
+        interest = data[0]['interest']
+        monthly_cont = data[0]['monthly']
+        time_frame = data[0]['years']
+
         yearly_total = {}
         yearly_principal = {}
         yearly_interest = {}

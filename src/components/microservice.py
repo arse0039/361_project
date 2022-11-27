@@ -22,6 +22,9 @@ def render(app: Dash) -> html.Div:
         with open('monthly_savings_amount.txt') as goal:
             final = goal.readlines()[0]
 
+        with open('user_input.txt', 'w') as clear:
+            pass
+
         if n_clicks:
             return f'In order to reach one million dollars, you would need to save ${final} per month for the next {years} years.'
 

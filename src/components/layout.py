@@ -1,4 +1,4 @@
-from dash import Dash, html
+from dash import Dash, html, dcc
 from . import retirement_forecaster, inputs, piechart, microservice
 
 
@@ -25,5 +25,6 @@ def render_layout(app: Dash):
                          html.Div(className='graph', id="pie", children=[
                                   piechart.render(app)])
                      ]),
+            dcc.Store(id='data-storage', data=[], storage_type='session')
         ]
     )

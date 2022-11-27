@@ -1,0 +1,7 @@
+https://dash.plotly.com/sharing-data-between-callbacks
+
+https://github.com/Coding-with-Adam/Dash-by-Plotly/blob/master/Dash%20Components/Store/data_share.py
+
+https://dash.plotly.com/dash-core-components/input
+
+https://qrc.depaul.edu/studyguide2009/notes/savings%20accounts/compound%20interest.htm

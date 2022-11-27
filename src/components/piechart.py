@@ -6,13 +6,15 @@ from dash import Dash, html, dcc, Input, Output, State
 
 def render(app: Dash) -> html.Div:
     @app.callback(
-        Output('pie-graph', "figure"),
+        Output('pie-graph', 'figure'),
         Input('submit', 'n_clicks'),
-        State('principal', 'value'),
-        State('monthly', 'value'),
-        State('interest', 'value'),
-        State('years', 'value'))
-    def comp_interest(n_clicks, principal, monthly, interest, time):
+        Input('data-storage', 'data'))
+    def comp_interest(n_clicks, data):
+        principal = data[0]['principal']
+        interest = data[0]['interest']
+        monthly = data[0]['monthly']
+        time = data[0]['years']
+
         yearly_principal = {}
         yearly_interest = {}
         interest = interest/100
