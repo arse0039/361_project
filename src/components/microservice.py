@@ -3,13 +3,16 @@ from dash import Dash, html, Input, Output, State
 
 def render(app: Dash) -> html.Div:
     @app.callback(
+        # Receive data from stored session and update txt file with said data.
         Output('monthly-target', "children"),
         Input('submit', 'n_clicks'),
-        State('principal', 'value'),
-        State('interest', 'value'),
-        State('years', 'value'))
-    def monthly_savings(n_clicks, principal, interest, years):
+        Input('data-storage', 'data'))
+    def monthly_savings(n_clicks, data):
         import time
+
+        principal = data[0]['principal']
+        interest = data[0]['interest']
+        years = data[0]['years']
 
         goal = 1000000
 

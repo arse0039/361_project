@@ -10,9 +10,17 @@ def render_layout(app: Dash):
                 html.P(
                     "Curious if you are on track for healthy nest egg for retirement?"),
                 html.P(
-                    "Use this tool to help you plan how much you should invest in order to hit your financial goals at retirement."),
+                    "Use this tool to help you plan how much you should invest in order \
+                    to hit your financial goals at retirement."),
                 html.P(
-                    "Simply add the data below and click the button to populate your forecast graph. Update your values and click calculate to update the graphs."
+                    "Simply add the data below and click the button to populate your \
+                    forecast graph. Update your values and click calculate to update \
+                    the graphs."
+                ),
+                html.P(
+                    "*** NEW FEATURE ADDED!*** This dashboard will now generate a pie \
+                    chart so you can easily view your totals for both interest and principal! \
+                    Simply move your mouse over the pie chart for more information."
                 ),
                 html.Hr(),
             ]),
